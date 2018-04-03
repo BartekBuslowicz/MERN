@@ -5,7 +5,8 @@ export const ADD_POST = 'ADD_POST';
 export const ADD_POSTS = 'ADD_POSTS';
 export const DELETE_POST = 'DELETE_POST';
 export const EDIT_POST = 'EDIT_POST';
-export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT'
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT'
 // Export Actions
 export function addPost(post) {
   return {
@@ -92,5 +93,18 @@ export function thumbUpComment(cuid) {
 export function thumbUpCommentRequest(cuid) {
   return (dispatch) => {
     return callApi(`posts/${cuid}`, 'put').then(() => dispatch(thumbUpComment(cuid)))
+  };
+}
+
+export function thumbDownComment(cuid) {
+  return {
+    type: THUMB_DOWN_COMMENT,
+    cuid,
+  };
+}
+
+export function thumbDownCommentRequest(cuid) {
+  return (dispatch) => {
+    return callApi(`posts/${cuid}`, 'put').then(() => dispatch(thumbDownComment(cuid)))
   };
 }

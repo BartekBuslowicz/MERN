@@ -13,6 +13,7 @@ function PostList(props) {
             key={post.cuid}
             onDelete={() => props.handleDeletePost(post.cuid)}
             voteUp={() => props.handleVoteUp(post.cuid)}
+            voteDown={() => props.handleVoteDown(post.cuid)}
           />
         ))
       }
@@ -30,6 +31,7 @@ PostList.propTypes = {
   })).isRequired,
   handleDeletePost: PropTypes.func.isRequired,
   handleVoteUp: PropTypes.func.isRequired,
+  handleVoteDown: PropTypes.func.isRequired,
 };
 
 export default PostList;
